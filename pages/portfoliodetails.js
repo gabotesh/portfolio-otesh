@@ -2,6 +2,8 @@ import React from 'react';
 import Baselayout from '../components/layouts/baselayout';
 import {withRouter} from 'next/router';
 import axios from 'axios';
+import Basepage from '../components/basepage';
+
 
 
 
@@ -43,9 +45,11 @@ class Portfoliodetails extends React.Component{
         const {postid}=this.props;
         return(
             <Baselayout>
+            <Basepage>
             <h1>{postid.title}</h1>
             <p> Body: {postid.body}</p>
             <p> Id : {postid.id}</p>
+            </Basepage>
 
             </Baselayout>
         )
