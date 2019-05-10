@@ -68,7 +68,7 @@ updateTitle=()=>{
       return(
         <Baselayout>
         <div>
-        <h1>Hello Next.js</h1>
+        <h1>I am index page from class component, and i was updated</h1>
         <h2>{title}</h2>
         <h2>{userData.title}</h2>
 
