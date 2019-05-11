@@ -44,7 +44,7 @@ class Portfoliodetails extends React.Component{
 
         const {postid}=this.props;
         return(
-            <Baselayout>
+            <Baselayout {...this.props.auth}>
             <Basepage>
             <h1>{postid.title}</h1>
             <p> Body: {postid.body}</p>

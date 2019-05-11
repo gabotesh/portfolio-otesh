@@ -14,7 +14,7 @@ constructor(props){
 
     render(){
       return(
-        <Baselayout className="cover">
+        <Baselayout className="cover" {...this.props.auth}>
   <div className="main-section">
     <div className="background-image">
       <img className="image" src="/static/images/background.png" />
