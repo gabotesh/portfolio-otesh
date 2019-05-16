@@ -6,13 +6,13 @@ import withAuth from '../components/HOC/withAuth';
 
 
 
-class cv extends React.Component{
+class Owner extends React.Component{
 
     render(){
         return(
             <Baselayout {...this.props.auth}>
             <Basepage>
-            <h1>am page cv</h1>
+            <h1>This is owner page </h1>
             </Basepage>
             </Baselayout>
         )
@@ -20,4 +20,4 @@ class cv extends React.Component{
     }
     
 }
-export default withAuth()(cv);
+export default withAuth('siteOwner')(Owner);

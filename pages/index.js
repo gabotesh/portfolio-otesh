@@ -13,8 +13,10 @@ constructor(props){
 }
 
     render(){
+   const{isAuthenticated,user}=this.props.auth;
+
       return(
-        <Baselayout className="cover" {...this.props.auth}>
+        <Baselayout className="cover" {...this.props.auth} headerType="index">
   <div className="main-section">
     <div className="background-image">
       <img className="image" src="/static/images/background.png" />
@@ -43,7 +45,9 @@ constructor(props){
         <Col md="6" className="hero-welcome-wrapper">
           <div className="hero-welcome-text">
             <h1>
-              Welcome to the portfolio website of Filip Jerga.
+
+              {isAuthenticated && <b><span>{user.name} </span></b>}
+              Welcome to the portfolio website of Otesh technologies.
               Get informed, collaborate and discover projects I was working on through the years!
             </h1>
           </div>

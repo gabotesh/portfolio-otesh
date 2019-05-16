@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node server.js",
+    "dev": "node Server/index.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node Server/index.js"
   },
   "keywords": [],
   "author": "",
@@ -19,11 +19,18 @@
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "formik": "^1.5.4",
     "js-cookie": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwks-rsa": "^1.5.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.5.8",
     "next": "^8.1.0",
     "next-routes": "^1.4.2",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
+    "react-datepicker": "^2.5.0",
     "react-dom": "^16.8.6",
     "react-typed": "^1.1.2",
     "reactstrap": "^8.0.0"
