@@ -10,13 +10,23 @@ import {Row, Col} from 'reactstrap';
 
 class PortfolioNew extends React.Component{
 
+  constructor(props){
+    super();
+    this.savePortfolio=this.savePortfolio.bind(this);
+
+  }
+
+  savePortfolio(portfolioData){
+    alert(JSON.stringify(portfolioData, null, 2));
+  }
+
 render(){
     return(
       <Baselayout {...this.props.auth}>
       <Basepage className="portfolio-create-page" title="Create New Portfolio">
       <Row>
        <Col md="6">
-      <PortfolioCreateForm />
+      <PortfolioCreateForm  onSubmit={this.savePortfolio}/>
       </Col>
       </Row>
        

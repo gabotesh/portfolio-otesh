@@ -3,6 +3,7 @@
 @import './index';
 @import './header';
 @import './portfolio';
+@import './blogs';
 
 
 html,body{
@@ -26,7 +27,7 @@ html,body{
 }
 
 .base-page {
-  padding-top: 150px;
+  padding: 150px 0 100px 0;
   color: black;
   background-color: #ecedee;
   min-height: 100vh;
