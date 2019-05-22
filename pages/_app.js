@@ -6,6 +6,8 @@ import '../styles/main.scss';
 import auth0 from '../Services/auth0';
 
 
+const namespace='http://localhost:3000'
+
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
@@ -18,8 +20,8 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx)
     }
 
-    
-    const auth={user, isAuthenticated: !!user};
+    const isSiteOwner= user && user[namespace +'/role']==='siteOwner'
+    const auth={user, isAuthenticated: !!user, isSiteOwner};
 
     return { pageProps, auth }
   }

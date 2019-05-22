@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Button } from 'reactstrap';
+import { Button,Alert } from 'reactstrap';
 import portfolioInput from '../form/portfolioInput';
 import portfolioDate from '../form/portfolioDate';
+//import moment = require('moment')
 
 
 
@@ -12,7 +12,7 @@ const validateInputs=(values)=>{
 
     Object.keys(values).forEach((key)=>{
 
-        if(!values[key] && (values[key] === 'startDate' || values[key ]=== 'endDate')){
+        if(!values[key] && key !== 'endDate'){
 
             errors[key]=`Field ${key} is required!!!`
         }
@@ -32,14 +32,13 @@ const validateInputs=(values)=>{
 
 }
 
-const Initial_vaues={title:'',company:'',location:'',position:'',description:'',startDate:'',endDate:''};
 
-const PortfolioCreateForm = (props) => (
+const PortfolioCreateForm = ({initialValues,onSubmit,error}) => (
   <div>
     <Formik
-      initialValues={Initial_vaues}
+      initialValues={initialValues}
       validate={validateInputs}
-      onSubmit={props.onSubmit}
+      onSubmit={onSubmit}
     >
       {({ isSubmitting }) => (
         <Form>
@@ -72,12 +71,21 @@ const PortfolioCreateForm = (props) => (
           <Field  className="form-control"
                   label="Start Date"
                   name="startDate" 
+                  initialDate={initialValues.startDate}
                   component={portfolioDate} />
           <Field  className="form-control"
                   label="End Date"
                   canBeDisable={true}
+                  initialDate={initialValues.endDate}
                   name="endDate" 
-                  component={portfolioDate} />         
+                  component={portfolioDate} />  
+
+
+                  {error &&
+                  <Alert color="danger">
+                  {error}
+                  </Alert>
+                  }       
           
 
           <Button color="success" size="lg" type="submit" disabled={isSubmitting}>
