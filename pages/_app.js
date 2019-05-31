@@ -1,5 +1,7 @@
 import React from 'react';
 import App, { Container } from 'next/app';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/main.scss';
@@ -31,7 +33,8 @@ class MyApp extends App {
 
     return (
       <Container>
-        <Component {...pageProps} auth={auth} />
+        <ToastContainer/>
+       <Component {...pageProps} auth={auth} />
       </Container>
     )
   }

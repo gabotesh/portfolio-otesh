@@ -6,9 +6,10 @@ import PortfolioCreateForm from '../components/portfolio/portfolioCreateForm';
 import {Row, Col} from 'reactstrap';
 import {createPortfolio} from '../action';
 import {Router} from '../routes';
+import moment from 'moment';
 
 
-const Initial_vaues={title:'',company:'',location:'',position:'',description:'',startDate:'',endDate:''};
+const Initial_vaues={title:'',company:'',location:'',position:'',description:'',startDate:moment(),endDate:moment()};
 
 
 class PortfolioNew extends React.Component{

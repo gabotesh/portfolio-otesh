@@ -1,8 +1,11 @@
 const Portfolio=require('../models/portfolioModel')
 
 exports.getPortfolios=(req,res)=>{
-    Portfolio.find({},(err,allPortfolios)=>{
-
+    
+    Portfolio.find({})
+             .sort({'startDate': 1})
+             .exec((err, allPortfolios)=>{
+               
       if(err){
         return res.status(422).send(err);
 
@@ -10,8 +13,8 @@ exports.getPortfolios=(req,res)=>{
       return res.json(allPortfolios);
 
     });
-
-
+    
+   
 }
 
 

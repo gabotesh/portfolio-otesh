@@ -6,6 +6,8 @@ const Mongoose = require('mongoose');
 const bodyParser=require('body-parser');
 const bookRoutes=require('./routes/bookroutes');
 const portfolioRoutes=require('./routes/portfolioroutes');
+const blogRoutes=require('./routes/blogroute');
+
 
 
  
@@ -44,6 +46,8 @@ app
 
     server.use('/api/v1/books', bookRoutes);
     server.use('/api/v1/portfolio', portfolioRoutes);
+    server.use('/api/v1/blogs', blogRoutes);
+
 
 
     server.get('/api/v1/secret', authService.checkJWT,(req, res)=>{

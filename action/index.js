@@ -57,3 +57,42 @@ export const deletePortfolio=(portfolioId)=>{
     return axiosInstance.delete(`/portfolio/${portfolioId}`, setauthHeader()).then(response=> response.data);
 
 }
+
+//....................Blog.....................
+
+export const getBlogBySlug=async (slug)=>{
+    return await axiosInstance.get(`/blogs/s/${slug}`).then(response=> response.data)
+}
+
+export const getBlogs= async ()=>{
+    return await axiosInstance.get('/blogs').then(response=> response.data);
+}
+
+export const createBlog=(blogData,lockId)=>{
+    return axiosInstance.post(`/blogs?lockId=${lockId}`,blogData, setauthHeader())
+                        .then(response=> response.data)
+                        .catch(err=>rejectPromise(err))
+}
+
+
+export const getBlogById=async (blogId)=>{
+    return await axiosInstance.get(`/blogs/${blogId}`).then(response=> response.data)
+}
+
+
+export const updateBlog=(blogData,blogId)=>{
+    return axiosInstance.patch(`/blogs/${blogId}`,blogData, setauthHeader())
+                        .then(response=> response.data)
+                        .catch(err=>rejectPromise(err))   
+}
+
+export const getUserBlogs= async (req)=>{
+    return await axiosInstance.get('/blogs/me',setauthHeader(req)).then(response=> response.data);
+}
+
+export const deleteBlog=(blogId)=>{
+    return axiosInstance.delete(`/blogs/${blogId}`, setauthHeader())
+                        .then(response=> response.data)
+                        .catch(err=>rejectPromise(err)) 
+
+}
