@@ -4,19 +4,45 @@ import Baselayout from '../components/layouts/baselayout';
 import { Col, Row, Container } from 'reactstrap';
 
 
- class Index extends React.Component{ 
-   
+ class Index extends React.Component{    
 
-constructor(props){
-  super(props);  
-  this.roles=['I am web fullstack developer','Tech lover','Team player','React.js and node.js'];
+     constructor(props){
+            super(props);  
+
+            this.state={
+              isFlipping: false
+            }
+
+
+            this.roles=['I am web fullstack developer','Tech lover','Team player','React.js and node.js'];
+      }
+
+componentDidMount(){
+  this.animatedCard();
+
+ }
+
+ componentWillUnmount(){
+   this.cardAnimationInterval && clearInterval(this.cardAnimationInterval);
+ }
+
+animatedCard(){
+ this.cardAnimationInterval= setInterval(()=>{
+
+  this.setState({
+    isFlipping: !this.state.isFlipping
+  });
+
+  }, 5000);
 }
+
 
     render(){
    const{isAuthenticated,user}=this.props.auth;
+   const {isFlipping}= this.state;
 
       return(
-        <Baselayout className="cover" {...this.props.auth} headerType="index">
+        <Baselayout className={`cover ${isFlipping ? 'cover-1' : 'cover-0'}`} {...this.props.auth} headerType="index">
   <div className="main-section">
     <div className="background-image">
       <img className="image" src="/static/images/background.png" />
@@ -26,8 +52,8 @@ constructor(props){
       <Row>
         <Col md="6">
           <div className="hero-section">
-            <div className={`flipper`}>
-              <div className="back">
+            <div className={`flipper ${isFlipping ? 'isFlipping' : '' }`}>
+              <div className="front">
                 <div className="hero-section-content">
                   <h2> Full Stack Web Developer </h2>
                   <div className="hero-section-content-intro">
@@ -38,6 +64,20 @@ constructor(props){
                 <div className="shadow-custom">
                   <div className="shadow-inner"> </div>
                 </div>
+              </div>
+
+              <div className="back">
+                <div className="hero-section-content">
+                  <h2> Get your Projects Done </h2>
+                  <div className="hero-section-content-intro">
+                    Profesional and top quality service in web development.
+                  </div>
+                </div>
+                <img className="image" src="/static/images/section-2.png"/>
+                <div className="shadow-custom  shadow-custom-2">
+                  <div className="shadow-inner"> </div>
+                </div>
+
               </div>
             </div>
           </div>
